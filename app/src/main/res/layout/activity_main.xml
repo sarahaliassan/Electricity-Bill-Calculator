@@ -1,0 +1,155 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    tools:context=".MainActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFF7D1"
+        android:title="Electricity Bills Calculator"
+        android:titleTextColor="#112A46"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+    />
+
+
+    <!-- Content Layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Let's Calculate Our Electricity Bill"
+            android:textSize="24sp"
+            android:textColor="#141414"
+            android:layout_marginTop="80dp"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintTop_toBottomOf="@id/my_toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.1" />  <!-- Adds some space from the top (optional, can be adjusted) -->
+
+
+        <!-- Logo Image -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/logoapp"
+            android:contentDescription="Logo"
+            app:layout_constraintTop_toBottomOf="@id/header_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp"
+            android:scaleType="centerInside" /> <!-- Ensures the logo fits well as an icon -->
+
+        <!-- Input for Electricity Units -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutElecUnit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Electric Unit Used (kWh)"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.131">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etElecUnit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Input for Rebate Percentage -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutRebatePctg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Rebate Percentage (%)"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutElecUnit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.23">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRebatePctg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Calculate Button -->
+        <Button
+            android:id="@+id/btnCalc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Calculate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutRebatePctg" />
+
+        <!-- Clear Button -->
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            app:layout_constraintTop_toBottomOf="@id/btnCalc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.403" />
+
+        <!-- About Me Button -->
+        <Button
+            android:id="@+id/btnAboutMe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="About Me"
+            app:layout_constraintTop_toBottomOf="@id/btnClear"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" />
+
+        <!-- Output TextView -->
+        <TextView
+            android:id="@+id/tvOutput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/btnAboutMe"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Footer Text -->
+        <TextView
+            android:id="@+id/tvCopyright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="© 2024 Electricity Bills Calculator by sarahaliassan"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

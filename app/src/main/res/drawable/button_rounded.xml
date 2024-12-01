@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- button_rounded.xml in res/drawable -->
+    <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+        <corners android:radius="12dp" />
+        <solid android:color="#FF7043" />
+
+    </shape>
+
+</selector>
